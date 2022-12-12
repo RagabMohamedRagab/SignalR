@@ -73,6 +73,11 @@ namespace Notifcations.Controllers {
             }
             return View(model);
         }
-       
+        [HttpPost]
+       public async Task<IActionResult> LogOut()
+        {
+          await  _signInManager.SignOutAsync();
+            return RedirectToAction(nameof(Index),"Home");
+        }
     }
 }
