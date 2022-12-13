@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Notifcations.Models.Entities;
 using Notifcations.Utlties.Configurtions;
 
 namespace Notifcations.Models {
@@ -29,16 +30,19 @@ namespace Notifcations.Models {
             builder.Entity<IdentityRole>().HasData(
                  new IdentityRole
                  {
-                     Name="Admin"
+                     Name="Admin",
+                     NormalizedName="ADMIN"
                  },
                  new IdentityRole
                  {
-                     Name = "User"
+                     Name = "User",
+                     NormalizedName="USER"
                  }
                 );
 
          
 
         }
+        public virtual DbSet<Message> Messages { get; set; }
     }
 }

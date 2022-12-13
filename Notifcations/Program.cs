@@ -4,12 +4,16 @@ using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Notifcations.Models;
+using Notifcations.Models.Entities;
 using Notifcations.Utlties.Configurtions;
 using Notifcations.Utlties.Services;
 
 var builder = WebApplication.CreateBuilder(args);
-builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("Connect")));
-builder.Services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<AppDbContext>().AddDefaultTokenProviders();
+builder.Services.AddDbContext<AppDbContext>(
+                        options => options.UseSqlServer(builder.Configuration.GetConnectionString("Connect")));
+builder.Services.AddIdentity<Appuser, IdentityRole>()
+                             .AddEntityFrameworkStores<AppDbContext>()
+                             .AddDefaultTokenProviders();
 builder.Services.AddScoped<IServices, Services>();
 builder.Services.Configure<IdentityOptions>(o =>
 {
@@ -29,7 +33,8 @@ builder.Services.AddMvc(option =>
 }).AddXmlSerializerFormatters();
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-
+builder.Services.AddSession();
+builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -42,6 +47,7 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
+app.UseSession();
 app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();

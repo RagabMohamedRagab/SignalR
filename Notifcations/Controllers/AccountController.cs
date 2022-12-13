@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Notifcations.Models.Entities;
 using Notifcations.Utlties.Configurtions;
 using Notifcations.Utlties.Services;
 using Notifcations.ViewModels;
@@ -9,13 +10,13 @@ using System.Data;
 namespace Notifcations.Controllers {
     
     public class AccountController : Controller {
-        private readonly SignInManager<IdentityUser> _signInManager;
-        private readonly UserManager<IdentityUser> _userManager;
+        private readonly SignInManager<Appuser> _signInManager;
+        private readonly UserManager<Appuser> _userManager;
         private readonly RoleManager<IdentityRole> _role;
 
         private readonly IServices _services;
 
-        public AccountController(SignInManager<IdentityUser> signInManager, UserManager<IdentityUser> userManager, IServices services, RoleManager<IdentityRole> role)
+        public AccountController(SignInManager<Appuser> signInManager, UserManager<Appuser> userManager, IServices services, RoleManager<IdentityRole> role)
         {
             _signInManager = signInManager;
             _userManager = userManager;
@@ -37,7 +38,7 @@ namespace Notifcations.Controllers {
             {
                 if (_services.EmailTakenByAnotherUser(model.Email).Result)
                 {
-                    IdentityUser identity = new IdentityUser()
+                    Appuser identity = new Appuser()
                     {
                         UserName = model.Email,
                         Email=model.Email,
@@ -66,6 +67,7 @@ namespace Notifcations.Controllers {
                             }
                             return View(model);
                         }
+                        HttpContext.Session.SetString("UserName", model.Email);
                         return View("Done");
                     }
                 }
@@ -77,6 +79,7 @@ namespace Notifcations.Controllers {
        public async Task<IActionResult> LogOut()
         {
           await  _signInManager.SignOutAsync();
+            HttpContext.Session.SetString("UserName","");
             return RedirectToAction(nameof(Index),"Home");
         }
     }

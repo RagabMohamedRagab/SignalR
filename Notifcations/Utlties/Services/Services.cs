@@ -1,12 +1,13 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using Notifcations.Models.Entities;
 
 namespace Notifcations.Utlties.Services {
     public class Services : IServices {
-        private readonly SignInManager<IdentityUser> _signInManager;
-        private readonly UserManager<IdentityUser> _userManager;
+        private readonly SignInManager<Appuser> _signInManager;
+        private readonly UserManager<Appuser> _userManager;
         private readonly RoleManager<IdentityRole> _roleManager;
 
-        public Services(SignInManager<IdentityUser> signInManager, UserManager<IdentityUser> userManager, RoleManager<IdentityRole> roleManager)
+        public Services(SignInManager<Appuser> signInManager, UserManager<Appuser> userManager, RoleManager<IdentityRole> roleManager)
         {
             _signInManager = signInManager;
             _userManager = userManager;

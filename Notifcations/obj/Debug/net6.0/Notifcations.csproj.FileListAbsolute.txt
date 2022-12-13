@@ -19,9 +19,7 @@ C:\Users\pc\Desktop\SendEmail\Notifcations\bin\Debug\net6.0\Microsoft.EntityFram
 C:\Users\pc\Desktop\SendEmail\Notifcations\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.SqlServer.dll
 C:\Users\pc\Desktop\SendEmail\Notifcations\bin\Debug\net6.0\Microsoft.Extensions.Caching.Memory.dll
 C:\Users\pc\Desktop\SendEmail\Notifcations\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.dll
-C:\Users\pc\Desktop\SendEmail\Notifcations\bin\Debug\net6.0\Microsoft.Extensions.FileProviders.Embedded.dll
 C:\Users\pc\Desktop\SendEmail\Notifcations\bin\Debug\net6.0\Microsoft.Extensions.Identity.Core.dll
-C:\Users\pc\Desktop\SendEmail\Notifcations\bin\Debug\net6.0\Microsoft.Extensions.Identity.Stores.dll
 C:\Users\pc\Desktop\SendEmail\Notifcations\bin\Debug\net6.0\Microsoft.Identity.Client.dll
 C:\Users\pc\Desktop\SendEmail\Notifcations\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
 C:\Users\pc\Desktop\SendEmail\Notifcations\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll

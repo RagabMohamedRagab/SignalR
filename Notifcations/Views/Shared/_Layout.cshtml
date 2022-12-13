@@ -1,4 +1,9 @@
-﻿@inject SignInManager<IdentityUser> signInManager;
+﻿@inject SignInManager<Appuser> signInManager;
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+@{
+    string UserName = HttpContextAccessor.HttpContext.Session.GetString("UserName");
+    bool Istrue = UserName!= null&&UserName.Length!=0?true:false;
+}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,11 +25,11 @@
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1 d-flex justify-content-end">
-                        @if (signInManager.IsSignedIn(User)){
+                        @if (Istrue ||signInManager.IsSignedIn(User) || User.Identity.IsAuthenticated)
+                        {
                             <li class="nav-item">
                                 <form method="post" asp-controller="Account" asp-action="LogOut">
-                                   <label>Logout</label>
-                                   <input type="submit" class="btn btn-primary">
+                                   <input type="submit" class="btn btn-primary" value="LogOut @UserName">
                                 </form>
                                 
                             </li>
