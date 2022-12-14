@@ -1,0 +1,38 @@
+﻿@model LoginViewModel;
+@{
+    ViewData["Title"] = "Login";
+}
+<div>
+    <h2 class="text-primary">@ViewData["Title"]</h2>
+    <hr />
+</div>
+<section>
+    <form method="post" asp-area="" asp-controller="Account" asp-action="Login"  asp-antiforgery="true">
+        <div asp-validation-summary="ModelOnly" class="text-danager"></div>
+        <div class="form-group  mt-2">
+            <label asp-for="Email" class="form-label"></label>
+            <input asp-for="Email" class="form-control" />
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+        <div class="form-group  mt-2">
+            <label asp-for="Password" class="form-label"></label>
+            <input asp-for="Password" class="form-control" />
+            <span asp-validation-for="Password" class="text-danger"></span>
+        </div>
+        <div class="form-group mt-2">
+            <label asp-for="RemmberMe" class="text-info">
+              <span>@Html.DisplayNameFor(m=>m.RemmberMe)</span>
+              <span>
+                  <input asp-for="RemmberMe">
+                  <span asp-validation-for="RemmberMe"></span>
+              </span>
+          </label>
+        </div>
+        <div class="form-group  mt-2">
+            <input type="submit" class="btn btn-primary" />
+        </div>
+    </form>
+</section>
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+}

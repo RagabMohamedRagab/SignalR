@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using Notifcations.Hubs;
 using Notifcations.Models;
 using Notifcations.Models.Entities;
 using Notifcations.Utlties.Configurtions;
@@ -31,7 +32,7 @@ builder.Services.AddMvc(option =>
     option.Filters.Add(new AuthorizeFilter(policy));
 
 }).AddXmlSerializerFormatters();
-// Add services to the container.
+builder.Services.AddSignalR();
 builder.Services.AddControllersWithViews();
 builder.Services.AddSession();
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
@@ -51,9 +52,10 @@ app.UseSession();
 app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
+app.MapHub<ChatHub>("/chathub");
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Account}/{action=Register}/{id?}");
 
 app.Run();
 

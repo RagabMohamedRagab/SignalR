@@ -8,7 +8,7 @@ using Notifcations.ViewModels;
 using System.Data;
 
 namespace Notifcations.Controllers {
-    
+    //[Authorize]
     public class AccountController : Controller {
         private readonly SignInManager<Appuser> _signInManager;
         private readonly UserManager<Appuser> _userManager;
@@ -41,7 +41,7 @@ namespace Notifcations.Controllers {
                     Appuser identity = new Appuser()
                     {
                         UserName = model.Email,
-                        Email=model.Email,
+                        Email = model.Email,
                         PasswordHash = model.Password,
                     };
                     // -- Create User
@@ -76,11 +76,44 @@ namespace Notifcations.Controllers {
             return View(model);
         }
         [HttpPost]
-       public async Task<IActionResult> LogOut()
+        public async Task<IActionResult> LogOut()
         {
-          await  _signInManager.SignOutAsync();
-            HttpContext.Session.SetString("UserName","");
-            return RedirectToAction(nameof(Index),"Home");
+            await _signInManager.SignOutAsync();
+            HttpContext.Session.SetString("UserName", "");
+            return View("Done");
+        }
+        [AllowAnonymous]
+        [HttpGet]
+        public IActionResult Login(string ReturnUrl)
+        {
+            ViewBag.Returnurl = ReturnUrl;
+            return View();
+        }
+        [AllowAnonymous]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> Login(LoginViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                Appuser user = await _userManager.FindByEmailAsync(model.Email);
+                var result = await _signInManager.PasswordSignInAsync(user, model.Password, model.RemmberMe, false);
+                if (!result.Succeeded)
+                {
+                    ModelState.AddModelError(string.Empty, "Email or Password are not Correct");
+                }
+
+                else
+                {
+                    HttpContext.Session.SetString("UserName", user.Email);
+                    return View("Done");
+                }
+
+            }
+            return View(model);
         }
     }
 }
+
+
+

@@ -25,7 +25,7 @@
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1 d-flex justify-content-end">
-                        @if (Istrue ||signInManager.IsSignedIn(User) || User.Identity.IsAuthenticated)
+                        @if (Istrue)
                         {
                             <li class="nav-item">
                                 <form method="post" asp-controller="Account" asp-action="LogOut">
@@ -39,7 +39,7 @@
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Register">Register</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Login</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Login">Login</a>
                             </li>
                               }          
                     </ul>
@@ -60,7 +60,10 @@
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/lib/signalr/dist/browser/signalr.js"></script>
+    <script src="~/lib/signalr/dist/browser/signalr.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+   
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

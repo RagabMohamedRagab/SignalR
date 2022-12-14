@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "EczcqfJuQrfixyVxU1WT8TVj5ISpFKRg+fDFCkQZ/94=",
+  "Hash": "JEmUVwkMkSQxeAZu5PRaBtRYyR2peJbj4h6OLj1qSbU=",
   "Source": "Notifcations",
   "BasePath": "_content/Notifcations",
   "Mode": "Default",
@@ -2089,6 +2089,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Identity": "C:\\Users\\pc\\Desktop\\SendEmail\\Notifcations\\wwwroot\\lib\\signalr\\dist\\browser\\signalr.js",
+      "SourceId": "Notifcations",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\pc\\Desktop\\SendEmail\\Notifcations\\wwwroot\\",
+      "BasePath": "_content/Notifcations",
+      "RelativePath": "lib/signalr/dist/browser/signalr.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\lib\\signalr\\dist\\browser\\signalr.js"
+    },
+    {
+      "Identity": "C:\\Users\\pc\\Desktop\\SendEmail\\Notifcations\\wwwroot\\lib\\signalr\\dist\\browser\\signalr.min.js",
+      "SourceId": "Notifcations",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\pc\\Desktop\\SendEmail\\Notifcations\\wwwroot\\",
+      "BasePath": "_content/Notifcations",
+      "RelativePath": "lib/signalr/dist/browser/signalr.min.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\lib\\signalr\\dist\\browser\\signalr.min.js"
     }
   ]
 }

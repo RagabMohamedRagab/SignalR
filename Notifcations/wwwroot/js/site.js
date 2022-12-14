@@ -1,4 +1,9 @@
-﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
+﻿var connect = new signalR.HubConnectionBuilder().WithUrl("/chathub").build();
+// Get All Notifaction For User;
 
-// Write your JavaScript code.
+
+
+
+
+connect.start();
+// Send Notifcation to another User

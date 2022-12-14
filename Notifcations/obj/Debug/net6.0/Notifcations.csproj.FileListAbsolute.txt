@@ -71,3 +71,7 @@ C:\Users\pc\Desktop\SendEmail\Notifcations\obj\Debug\net6.0\refint\Notifcations.
 C:\Users\pc\Desktop\SendEmail\Notifcations\obj\Debug\net6.0\Notifcations.pdb
 C:\Users\pc\Desktop\SendEmail\Notifcations\obj\Debug\net6.0\Notifcations.genruntimeconfig.cache
 C:\Users\pc\Desktop\SendEmail\Notifcations\obj\Debug\net6.0\ref\Notifcations.dll
+C:\Users\pc\Desktop\SendEmail\Notifcations\bin\Debug\net6.0\EntityFramework.SqlServer.dll
+C:\Users\pc\Desktop\SendEmail\Notifcations\bin\Debug\net6.0\EntityFramework.dll
+C:\Users\pc\Desktop\SendEmail\Notifcations\bin\Debug\net6.0\System.Web.Providers.dll
+C:\Users\pc\Desktop\SendEmail\Notifcations\bin\Debug\net6.0\libman.json
