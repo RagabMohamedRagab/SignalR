@@ -97,18 +97,21 @@ namespace Notifcations.Controllers {
             if (ModelState.IsValid)
             {
                 Appuser user = await _userManager.FindByEmailAsync(model.Email);
-                var result = await _signInManager.PasswordSignInAsync(user, model.Password, model.RemmberMe, false);
-                if (!result.Succeeded)
+                if (user != null)
                 {
-                    ModelState.AddModelError(string.Empty, "Email or Password are not Correct");
-                }
+                    var result = await _signInManager.PasswordSignInAsync(user, model.Password, model.RemmberMe, false);
+                    if (!result.Succeeded)
+                    {
+                        ModelState.AddModelError(string.Empty, "Email or Password are not Correct");
+                    }
 
-                else
-                {
-                    HttpContext.Session.SetString("UserName", user.Email);
-                    return View("Done");
+                    else
+                    {
+                        HttpContext.Session.SetString("UserName", user.Email);
+                        return View("Done");
+                    }
                 }
-
+                ModelState.AddModelError(string.Empty, "مش لاقي البنادم ده");
             }
             return View(model);
         }

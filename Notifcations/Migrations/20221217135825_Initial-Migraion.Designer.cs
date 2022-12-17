@@ -12,8 +12,8 @@ using Notifcations.Models;
 namespace Notifcations.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20221213081102_NormalizedNameOfRole")]
-    partial class NormalizedNameOfRole
+    [Migration("20221217135825_Initial-Migraion")]
+    partial class InitialMigraion
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -53,15 +53,15 @@ namespace Notifcations.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "b231d7e8-662f-471e-9980-292e388b2ed1",
-                            ConcurrencyStamp = "711774c8-2183-4ade-968f-403b7b5434fc",
+                            Id = "5bae3dd8-f146-4985-a43e-9206346bc026",
+                            ConcurrencyStamp = "0f7e4e26-1915-4727-89bb-c781700df6a2",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "992d8aac-6c5d-4135-ac73-82710d39a1cf",
-                            ConcurrencyStamp = "8abfcb11-837b-40dc-bd21-a958b74f8b64",
+                            Id = "67813098-8519-4fa1-b56c-9844e176761d",
+                            ConcurrencyStamp = "0d361e61-37b7-47f7-ba77-754ad72699ae",
                             Name = "User",
                             NormalizedName = "USER"
                         });
@@ -165,15 +165,15 @@ namespace Notifcations.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "001060d3-be7e-4fb2-9c52-17e4319dc80b",
+                            Id = "9d3a90d8-98ea-48b6-af7e-811368fecb61",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "4e65bd8c-6d16-4531-8e98-56cd136d6b4f",
+                            ConcurrencyStamp = "109e8388-1733-4db0-ae44-1e572e3d6d52",
                             Email = "Admin123@gamil.com",
                             EmailConfirmed = true,
                             LockoutEnabled = true,
                             PasswordHash = "Admin123",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "0c742694-d579-4a60-8fc1-f558be431d9a",
+                            SecurityStamp = "1f3ada1e-7290-41a8-b126-f35b77e3fa96",
                             TwoFactorEnabled = false,
                             UserName = "Admin123@gamil.com"
                         });
