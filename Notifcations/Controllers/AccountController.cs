@@ -100,6 +100,7 @@ namespace Notifcations.Controllers {
                 if (user != null)
                 {
                     var result = await _signInManager.PasswordSignInAsync(user, model.Password, model.RemmberMe, false);
+                    ViewBag.IsAdmin =await _userManager.IsInRoleAsync(user, "Admin");
                     if (!result.Succeeded)
                     {
                         ModelState.AddModelError(string.Empty, "Email or Password are not Correct");

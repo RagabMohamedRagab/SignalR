@@ -3,6 +3,7 @@
 @{
     string UserName = HttpContextAccessor.HttpContext.Session.GetString("UserName");
     bool Istrue = UserName!= null&&UserName.Length!=0?true:false;
+    bool IsAdmin = ViewBag.IsAdmin==null?false:true;
 }
 <!DOCTYPE html>
 <html lang="en">
@@ -25,6 +26,12 @@
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1 d-flex justify-content-end">
+                        @if (IsAdmin)
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="" asp-action="">Send Notifcation</a>
+                            </li>
+                        }
                         @if (Istrue)
                         {
                             <li class="nav-item">
@@ -41,7 +48,9 @@
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Login">Login</a>
                             </li>
-                              }          
+                              }
+                        
+                       
                     </ul>
                 </div>
             </div>
