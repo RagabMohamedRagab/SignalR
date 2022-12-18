@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Notifcations.Models.Entities;
 using Notifcations.Utlties.Configurtions;
 using Notifcations.Utlties.Services;
@@ -109,12 +110,27 @@ namespace Notifcations.Controllers {
                     else
                     {
                         HttpContext.Session.SetString("UserName", user.Email);
+                        if (ViewBag.IsAdmin)
+                        {
+                           return RedirectToAction(nameof(SendMessage));
+                        }
+                            
                         return View("Done");
                     }
                 }
                 ModelState.AddModelError(string.Empty, "مش لاقي البنادم ده");
             }
             return View(model);
+        }
+        [HttpGet]
+        public async  Task<IActionResult> SendMessage()
+        {
+            IEnumerable<Appuser> appusers =await _userManager.GetUsersInRoleAsync("User");
+            MessageViewModel message = new MessageViewModel
+            {
+                Users = appusers.ToList()
+            };
+            return View();
         }
     }
 }
