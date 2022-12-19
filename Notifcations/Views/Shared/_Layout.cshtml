@@ -3,7 +3,7 @@
 @{
     string UserName = HttpContextAccessor.HttpContext.Session.GetString("UserName");
     bool Istrue = UserName!= null&&UserName.Length!=0?true:false;
-    bool IsAdmin = ViewBag.IsAdmin==null?false:true;
+    
 }
 <!DOCTYPE html>
 <html lang="en">
@@ -26,21 +26,26 @@
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1 d-flex justify-content-end">
-                        @if (IsAdmin)
-                        {
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="SendMessage">Send Notifcation</a>
-                            </li>
-                        }
+                       
+                        
                         @if (Istrue)
                         {
+                            @if (User.IsInRole("Admin"))
+                            {
+                            }
+                            else
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="" asp-action="Message">Notifcations</a>
+                                </li>
+                            }
                             <li class="nav-item">
                                 <form method="post" asp-controller="Account" asp-action="LogOut">
                                    <input type="submit" class="btn btn-primary" value="LogOut @UserName">
                                 </form>
                                 
                             </li>
-                           
+
                         }else{
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Register">Register</a>
