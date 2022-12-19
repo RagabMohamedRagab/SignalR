@@ -11,6 +11,7 @@ using Notifcations.Utlties.Configurtions;
 using Notifcations.Utlties.Services;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddAutoMapper(typeof(Program));
 builder.Services.AddAuthentication(NegotiateDefaults.AuthenticationScheme).AddNegotiate();
 builder.Services.AddAuthorization(options =>
 {
@@ -18,7 +19,7 @@ builder.Services.AddAuthorization(options =>
     options.FallbackPolicy = options.DefaultPolicy;
 });
 builder.Services.AddDbContext<AppDbContext>(
-                        options => options.UseSqlServer(builder.Configuration.GetConnectionString("Connect")));
+                        options => options.UseLazyLoadingProxies().UseSqlServer(builder.Configuration.GetConnectionString("Connect")));
 builder.Services.AddIdentity<Appuser, IdentityRole>()
                              .AddEntityFrameworkStores<AppDbContext>()
                              .AddDefaultTokenProviders();

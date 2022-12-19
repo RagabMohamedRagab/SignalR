@@ -1,8 +1,11 @@
 ﻿using Notifcations.Models.Entities;
+using System.ComponentModel.DataAnnotations;
 
 namespace Notifcations.ViewModels {
     public class MessageViewModel {
-        public string Message { get; set; }
-        public virtual ICollection<Appuser> Users { get; set; }
+        [Required(ErrorMessage = " هنا يلا")]
+        public string Text { get; set;}
+        [Required(ErrorMessage = "اكتب هنا يلا")]
+        public string UserId { get; set; }
     }
 }

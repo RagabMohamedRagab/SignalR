@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -14,15 +15,16 @@ namespace Notifcations.Controllers {
         private readonly SignInManager<Appuser> _signInManager;
         private readonly UserManager<Appuser> _userManager;
         private readonly RoleManager<IdentityRole> _role;
-
         private readonly IServices _services;
+        private readonly IMapper _mapper;
 
-        public AccountController(SignInManager<Appuser> signInManager, UserManager<Appuser> userManager, IServices services, RoleManager<IdentityRole> role)
+        public AccountController(SignInManager<Appuser> signInManager, UserManager<Appuser> userManager, IServices services, RoleManager<IdentityRole> role, IMapper mapper)
         {
             _signInManager = signInManager;
             _userManager = userManager;
             _services = services;
             _role = role;
+            _mapper = mapper;
         }
         [AllowAnonymous]
         [HttpGet]
@@ -126,11 +128,29 @@ namespace Notifcations.Controllers {
         public async  Task<IActionResult> SendMessage()
         {
             IEnumerable<Appuser> appusers =await _userManager.GetUsersInRoleAsync("User");
-            MessageViewModel message = new MessageViewModel
-            {
-                Users = appusers.ToList()
-            };
+            ViewBag.Users = new SelectList(appusers.Select(b => b.Email));
             return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> SendMessage(MessageViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = await _userManager.FindByEmailAsync(model.UserId);
+                if (user != null)
+                {
+                    model.UserId = user.Id;
+                    var message = _mapper.Map<Message>(model);
+                    if (_services.CreateMessage(message).Result > 0)
+                    {
+                        // Configure to Send 
+                    }
+                }
+                ModelState.AddModelError(string.Empty, "مش لاقي البنادم ده");
+            }
+
+            return View(model);
         }
     }
 }
