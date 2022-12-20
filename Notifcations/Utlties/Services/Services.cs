@@ -17,6 +17,14 @@ namespace Notifcations.Utlties.Services {
             _context = context;
         }
 
+        public async Task<int> CountNotifcationUser(string email)
+        {
+            var user =await _userManager.FindByEmailAsync(email);
+            if(user == null)return 0;
+            var countMesg = _context.Messages.Where(a => a.UserId == user.Id).ToList();
+            return countMesg.Count;
+        }
+
         public async Task<int> CreateMessage(Message message)
         {
             _context.Add<Message>(message);

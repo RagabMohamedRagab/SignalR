@@ -5,5 +5,6 @@ namespace Notifcations.Utlties.Services {
         Task<bool> EmailTakenByAnotherUser(string email);
         Task<bool> RoleIsExist(string role);
         Task<int> CreateMessage(Message message);
+        Task<int> CountNotifcationUser(string email);
     }
 }

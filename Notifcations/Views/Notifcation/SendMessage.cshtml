@@ -2,7 +2,7 @@
 @{
     ViewData["Title"] = "Send To User";
 }
-<form method="post" asp-area="" asp-controller="Account" asp-action="SendMessage" asp-antiforgery="true">
+<form method="post" asp-area="" asp-controller="Notifcation" asp-action="SendMessage" asp-antiforgery="true">
     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
     <div class="form-group  mt-4">
         <label  class="form-label">Send To</label>
@@ -17,7 +17,7 @@
         <span asp-validation-for="Text" class="text-danger"></span>
     </div>
     <div class="form-group  mt-4">
-        <input type="submit" value="Send" class="btn btn-primary" />
+        <input type="submit" value="Send" class="btn btn-primary" id="send" />
     </div>
 </form>
 @section Scripts{

@@ -22,7 +22,22 @@
         $("#val").text("");
     });
 
+    $("#send").click(function () {
+        var $nMesg = $("#val");
+        $.ajax({
+            url: "Notifcation/GetCountNotifcation",
+            type: "Get",
+                 success: function (result) {
+                console.log(result);
+            },
+            error: function (result) {
+                console.log(result);
+            }
+        });
+    })
+
 });
+
 
 
 

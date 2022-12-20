@@ -13,11 +13,24 @@ namespace Notifcations.Controllers {
         private readonly IMapper _mapper;
         private readonly IServices _services;
         private readonly UserManager<Appuser> _userManager;
-        public NotifcationController(IMapper mapper, UserManager<Appuser> userManager, IServices services)
+        private readonly IHttpContextAccessor _httpContext;
+        public NotifcationController(IMapper mapper, UserManager<Appuser> userManager, IServices services, IHttpContextAccessor httpContext)
         {
             _mapper = mapper;
             _userManager = userManager;
             _services = services;
+            _httpContext = httpContext;
+        }
+        [HttpGet]
+        public JsonResult GetCountNotifcation()
+        {
+            var email = _httpContext.HttpContext.Session.GetString("UserName");
+            if (email== null)
+            {
+                return Json(0);
+            }
+            var CountMesg = _services.CountNotifcationUser(email).Result;
+            return Json(CountMesg);
         }
         [HttpGet]
         public async Task<IActionResult> SendMessage()
@@ -39,7 +52,8 @@ namespace Notifcations.Controllers {
                     var message = _mapper.Map<Message>(model);
                     if (_services.CreateMessage(message).Result > 0)
                     {
-                        // Configure to Send 
+                        ModelState.Clear();
+                        return View();
                     }
                 }
                 ModelState.AddModelError(string.Empty, "مش لاقي البنادم ده");
