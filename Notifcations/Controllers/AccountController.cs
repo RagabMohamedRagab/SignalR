@@ -10,7 +10,7 @@ using Notifcations.ViewModels;
 using System.Data;
 
 namespace Notifcations.Controllers {
-    //[Authorize]
+    [Authorize]
     public class AccountController : Controller {
         private readonly SignInManager<Appuser> _signInManager;
         private readonly UserManager<Appuser> _userManager;
@@ -18,13 +18,13 @@ namespace Notifcations.Controllers {
         private readonly IServices _services;
         private readonly IMapper _mapper;
 
-        public AccountController(SignInManager<Appuser> signInManager, UserManager<Appuser> userManager, IServices services, RoleManager<IdentityRole> role, IMapper mapper)
+        public AccountController(SignInManager<Appuser> signInManager, UserManager<Appuser> userManager, IServices services, RoleManager<IdentityRole> role)
         {
             _signInManager = signInManager;
             _userManager = userManager;
             _services = services;
             _role = role;
-            _mapper = mapper;
+            
         }
         [AllowAnonymous]
         [HttpGet]
@@ -114,44 +114,17 @@ namespace Notifcations.Controllers {
                         HttpContext.Session.SetString("UserName", user.Email);
                         if (ViewBag.IsAdmin)
                         {
-                           return RedirectToAction(nameof(SendMessage));
+                           return RedirectToAction("SendMessage", "Notifcation");
                         }
                             
                         return View("Done");
                     }
                 }
-                ModelState.AddModelError(string.Empty, "مش لاقي البنادم ده");
+                ModelState.AddModelError(string.Empty, "مش لاقي البني ادم ده");
             }
             return View(model);
         }
-        [HttpGet]
-        public async  Task<IActionResult> SendMessage()
-        {
-            IEnumerable<Appuser> appusers =await _userManager.GetUsersInRoleAsync("User");
-            ViewBag.Users = new SelectList(appusers.Select(b => b.Email));
-            return View();
-        }
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> SendMessage(MessageViewModel model)
-        {
-            if (ModelState.IsValid)
-            {
-                var user = await _userManager.FindByEmailAsync(model.UserId);
-                if (user != null)
-                {
-                    model.UserId = user.Id;
-                    var message = _mapper.Map<Message>(model);
-                    if (_services.CreateMessage(message).Result > 0)
-                    {
-                        // Configure to Send 
-                    }
-                }
-                ModelState.AddModelError(string.Empty, "مش لاقي البنادم ده");
-            }
-
-            return View(model);
-        }
+        
     }
 }
 

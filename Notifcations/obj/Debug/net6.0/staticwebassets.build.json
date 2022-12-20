@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "r/oCH6iAcQhDwZQRabk23lFQeHSBagh4F0iIwJMriI0=",
+  "Hash": "ugMUUscZqsi+BRJPft5i8loh2j46E+I+W8rt2CyeLMo=",
   "Source": "Notifcations",
   "BasePath": "_content/Notifcations",
   "Mode": "Default",
@@ -1103,6 +1103,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Users\\pc\\Desktop\\Notifcations\\Notifcations\\wwwroot\\Images\\NotifcationIcon.svg",
+      "SourceId": "Notifcations",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\pc\\Desktop\\Notifcations\\Notifcations\\wwwroot\\",
+      "BasePath": "_content/Notifcations",
+      "RelativePath": "Images/NotifcationIcon.svg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\NotifcationIcon.svg"
     },
     {
       "Identity": "C:\\Users\\pc\\Desktop\\Notifcations\\Notifcations\\wwwroot\\js\\site.js",

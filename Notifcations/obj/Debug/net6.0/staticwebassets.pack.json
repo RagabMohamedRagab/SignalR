@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\Notifcations.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\pc\\Desktop\\Notifcations\\Notifcations\\wwwroot\\Images\\NotifcationIcon.svg",
+      "PackagePath": "staticwebassets\\Images\\NotifcationIcon.svg"
+    },
+    {
       "Id": "C:\\Users\\pc\\Desktop\\Notifcations\\Notifcations\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },

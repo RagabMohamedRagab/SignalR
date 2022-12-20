@@ -1,0 +1,13 @@
+﻿@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+@{
+    string UserName = HttpContextAccessor.HttpContext.Session.GetString("UserName");
+}
+<li class="nav-item mt-2">
+    <form method="post" asp-controller="Account" asp-action="LogOut">
+        <input type="submit" class="btn btn-primary" value="LogOut - @UserName">
+    </form>
+
+</li>
+
+
+
