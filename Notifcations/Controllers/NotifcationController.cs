@@ -3,6 +3,9 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.SignalR;
+using Notifcations.Hubs;
+using Notifcations.Hubs.ServicesHub;
 using Notifcations.Models.Entities;
 using Notifcations.Utlties.Services;
 using Notifcations.ViewModels;
@@ -14,23 +17,16 @@ namespace Notifcations.Controllers {
         private readonly IServices _services;
         private readonly UserManager<Appuser> _userManager;
         private readonly IHttpContextAccessor _httpContext;
-        public NotifcationController(IMapper mapper, UserManager<Appuser> userManager, IServices services, IHttpContextAccessor httpContext)
+        private readonly IHubContext<NotificationUserHub> _notificationUserHubContext;
+        private readonly IUserConnectionManager _userConnectionManager;
+        public NotifcationController(IMapper mapper, UserManager<Appuser> userManager, IServices services, IHttpContextAccessor httpContext, IHubContext<NotificationUserHub> notificationUserHubContext, IUserConnectionManager userConnectionManager)
         {
             _mapper = mapper;
             _userManager = userManager;
             _services = services;
             _httpContext = httpContext;
-        }
-        [HttpGet]
-        public JsonResult GetCountNotifcation()
-        {
-            var email = _httpContext.HttpContext.Session.GetString("UserName");
-            if (email== null)
-            {
-                return Json(0);
-            }
-            var CountMesg = _services.CountNotifcationUser(email).Result;
-            return Json(CountMesg);
+            _notificationUserHubContext = notificationUserHubContext;
+            _userConnectionManager = userConnectionManager;
         }
         [HttpGet]
         public async Task<IActionResult> SendMessage()
@@ -52,8 +48,15 @@ namespace Notifcations.Controllers {
                     var message = _mapper.Map<Message>(model);
                     if (_services.CreateMessage(message).Result > 0)
                     {
-                        ModelState.Clear();
-                        return View();
+                      var connections= _userConnectionManager.GetUserConnections(user.Id);
+                        if(connections!=null&& connections.Count > 0)
+                        {
+                            foreach (var connectionId in connections)
+                            {
+                               await _notificationUserHubContext.Clients.Clients(connectionId).SendAsync("sendToUser", model.Text);
+                            }
+                            return View("Sucess");
+                        }
                     }
                 }
                 ModelState.AddModelError(string.Empty, "مش لاقي البنادم ده");

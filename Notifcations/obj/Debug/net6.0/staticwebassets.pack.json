@@ -5,8 +5,16 @@
       "PackagePath": "staticwebassets\\Notifcations.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\pc\\Desktop\\Notifcations\\Notifcations\\wwwroot\\Images\\Home.svg",
+      "PackagePath": "staticwebassets\\Images\\Home.svg"
+    },
+    {
       "Id": "C:\\Users\\pc\\Desktop\\Notifcations\\Notifcations\\wwwroot\\Images\\NotifcationIcon.svg",
       "PackagePath": "staticwebassets\\Images\\NotifcationIcon.svg"
+    },
+    {
+      "Id": "C:\\Users\\pc\\Desktop\\Notifcations\\Notifcations\\wwwroot\\Images\\Vertict.svg",
+      "PackagePath": "staticwebassets\\Images\\Vertict.svg"
     },
     {
       "Id": "C:\\Users\\pc\\Desktop\\Notifcations\\Notifcations\\wwwroot\\css\\site.css",
@@ -15,6 +23,10 @@
     {
       "Id": "C:\\Users\\pc\\Desktop\\Notifcations\\Notifcations\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "C:\\Users\\pc\\Desktop\\Notifcations\\Notifcations\\wwwroot\\js\\Notifcation.js",
+      "PackagePath": "staticwebassets\\js\\Notifcation.js"
     },
     {
       "Id": "C:\\Users\\pc\\Desktop\\Notifcations\\Notifcations\\wwwroot\\js\\site.js",

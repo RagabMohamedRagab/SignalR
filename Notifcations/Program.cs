@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Notifcations.Hubs;
+using Notifcations.Hubs.ServicesHub;
 using Notifcations.Models;
 using Notifcations.Models.Entities;
 using Notifcations.Utlties.Configurtions;
@@ -24,6 +25,7 @@ builder.Services.AddIdentity<Appuser, IdentityRole>()
                              .AddEntityFrameworkStores<AppDbContext>()
                              .AddDefaultTokenProviders();
 builder.Services.AddScoped<IServices, Services>();
+builder.Services.AddSingleton<IUserConnectionManager, UserConnectionManager>();
 builder.Services.Configure<IdentityOptions>(o =>
 {
     o.Password.RequireDigit = false;
@@ -60,7 +62,7 @@ app.UseSession();
 app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
-app.MapHub<ChatHub>("/chathub");
+app.MapHub<NotificationUserHub>("/NotificationUserHub");
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Account}/{action=Register}/{id?}");

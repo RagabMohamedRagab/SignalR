@@ -22,38 +22,6 @@
         $("#val").text("");
     });
 
-    $("#send").click(function () {
-        var $nMesg = $("#val");
-        $.ajax({
-            url: "Notifcation/GetCountNotifcation",
-            type: "Get",
-                 success: function (result) {
-                console.log(result);
-            },
-            error: function (result) {
-                console.log(result);
-            }
-        });
-    })
+    
 
 });
-
-
-
-
-
-
-
-
-
-
-
-var connect = new signalR.HubConnectionBuilder().WithUrl("/chathub").build();
-// Get All Notifaction For User;
-
-
-
-
-
-connect.start();
-// Send Notifcation to another User

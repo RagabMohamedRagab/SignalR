@@ -2,7 +2,7 @@
 using Notifcations.Models.Entities;
 using Notifcations.ViewModels;
 
-namespace Notifcations.Utlties.Mapper {
+namespace Notifcations.Utlties.Mappers {
     public class AutoMapper: Profile {
         public AutoMapper()
         {

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "ugMUUscZqsi+BRJPft5i8loh2j46E+I+W8rt2CyeLMo=",
+  "Hash": "5G7VngU1roXFf4ggnE4XV6Jv9aNJ+E6d3M/mQwDLtas=",
   "Source": "Notifcations",
   "BasePath": "_content/Notifcations",
   "Mode": "Default",
@@ -1105,6 +1105,23 @@
       "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
+      "Identity": "C:\\Users\\pc\\Desktop\\Notifcations\\Notifcations\\wwwroot\\Images\\Home.svg",
+      "SourceId": "Notifcations",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\pc\\Desktop\\Notifcations\\Notifcations\\wwwroot\\",
+      "BasePath": "_content/Notifcations",
+      "RelativePath": "Images/Home.svg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\Home.svg"
+    },
+    {
       "Identity": "C:\\Users\\pc\\Desktop\\Notifcations\\Notifcations\\wwwroot\\Images\\NotifcationIcon.svg",
       "SourceId": "Notifcations",
       "SourceType": "Discovered",
@@ -1120,6 +1137,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Images\\NotifcationIcon.svg"
+    },
+    {
+      "Identity": "C:\\Users\\pc\\Desktop\\Notifcations\\Notifcations\\wwwroot\\Images\\Vertict.svg",
+      "SourceId": "Notifcations",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\pc\\Desktop\\Notifcations\\Notifcations\\wwwroot\\",
+      "BasePath": "_content/Notifcations",
+      "RelativePath": "Images/Vertict.svg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\Vertict.svg"
+    },
+    {
+      "Identity": "C:\\Users\\pc\\Desktop\\Notifcations\\Notifcations\\wwwroot\\js\\Notifcation.js",
+      "SourceId": "Notifcations",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\pc\\Desktop\\Notifcations\\Notifcations\\wwwroot\\",
+      "BasePath": "_content/Notifcations",
+      "RelativePath": "js/Notifcation.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\Notifcation.js"
     },
     {
       "Identity": "C:\\Users\\pc\\Desktop\\Notifcations\\Notifcations\\wwwroot\\js\\site.js",
