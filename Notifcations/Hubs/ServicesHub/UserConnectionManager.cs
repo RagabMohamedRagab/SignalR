@@ -3,7 +3,13 @@
         private static  Dictionary<string,List<string>> userConnectionMap=new Dictionary<string,List<string>>();
         private static string userConnectionMapLocker = string.Empty;
        
-
+        /*
+         *   {"UserId",List<string>ConnectionId}
+         * 
+         */
+        // Keep User Connection 
+        // If User Connect Add connection Id To user in his connection
+        // If user Not Connect Add new Connection.
         public void KeepUserConnection(string userId, string connectionId)
         {
             lock (userConnectionMapLocker)
@@ -16,7 +22,7 @@
             }
             
         }
-
+        // Specify UserId And remove his connection List
         public void RemoveUserConnection(string connectionId)
         {
             lock (userConnectionMapLocker) {
@@ -34,6 +40,7 @@
             
             }
         }
+        // Get All ConnectionId For this user by userId
         public List<string> GetUserConnections(string userId)
         {
             var con=new List<string>();

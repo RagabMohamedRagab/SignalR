@@ -48,15 +48,7 @@ namespace Notifcations.Controllers {
                     var message = _mapper.Map<Message>(model);
                     if (_services.CreateMessage(message).Result > 0)
                     {
-                      var connections= _userConnectionManager.GetUserConnections(user.Id);
-                        if(connections!=null&& connections.Count > 0)
-                        {
-                            foreach (var connectionId in connections)
-                            {
-                               await _notificationUserHubContext.Clients.Clients(connectionId).SendAsync("sendToUser", model.Text);
-                            }
-                            return View("Sucess");
-                        }
+                     
                     }
                 }
                 ModelState.AddModelError(string.Empty, "مش لاقي البنادم ده");
