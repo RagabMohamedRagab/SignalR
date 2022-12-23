@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 
 namespace Notifcations.Controllers {
-    [Authorize(Roles = "User,Admin")]
+    [Authorize(Roles = "User")]
     public class ChattingController : Controller {
         public IActionResult Index()
         {

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "5G7VngU1roXFf4ggnE4XV6Jv9aNJ+E6d3M/mQwDLtas=",
+  "Hash": "H0XpmWFLEINlDqdfL3JeiXK7ttFJRFQniWQ1T2RJV3g=",
   "Source": "Notifcations",
   "BasePath": "_content/Notifcations",
   "Mode": "Default",
@@ -1156,12 +1156,12 @@
       "OriginalItemSpec": "wwwroot\\Images\\Vertict.svg"
     },
     {
-      "Identity": "C:\\Users\\pc\\Desktop\\Notifcations\\Notifcations\\wwwroot\\js\\Notifcation.js",
+      "Identity": "C:\\Users\\pc\\Desktop\\Notifcations\\Notifcations\\wwwroot\\js\\Chat.js",
       "SourceId": "Notifcations",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\pc\\Desktop\\Notifcations\\Notifcations\\wwwroot\\",
       "BasePath": "_content/Notifcations",
-      "RelativePath": "js/Notifcation.js",
+      "RelativePath": "js/Chat.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1170,7 +1170,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\js\\Notifcation.js"
+      "OriginalItemSpec": "wwwroot\\js\\Chat.js"
     },
     {
       "Identity": "C:\\Users\\pc\\Desktop\\Notifcations\\Notifcations\\wwwroot\\js\\site.js",

@@ -20,11 +20,13 @@ $("#btnSendMessage").click(function (e) {
     $("#txtMessage").val('');
     // Focus again 
     $("#txtMessage").focus();
+    // clear name
+    $("#txtUser").val("");
     e.preventDefault();
 });
 // Response Server to client
 connection.on("ReceiveMessage", function (user, text) {
-    var connect = `<br/>${user}-<br>${text}`;
+    var connect = `<br/>${user}:${text}<br/>`;
     $("#messagesList").append(`<li>${connect}</li>`);
 });
 
