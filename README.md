@@ -29,3 +29,20 @@
 
 ## Hubs 
 > SignalR used Hubs to Communication Between Client And Server.
+
+<img src="Help/slide_1.jpg" alt="" style="width:50%;height:300px"/>
+
+## Install SignalR in Asp.net core 6
+
+<ol>
+ <li>In Solution Explorer, right-click the project, and select Add > Client-Side Library.</li>
+ <li>In the Add Client-Side Library dialog:
+   <ul>
+     <li>Select <b>unpkg</b> for Provider</li>
+     <li>Enter <mark>@microsoft/signalr@latest</mark> for Library</li>
+     <li>Select <b> Choose specific files</b>, expand the <i>dist/browser</i> folder, and select<mark>signalr.js and signalr.min.js.</mark></li>
+     <li>Set Target Location to <i>wwwroot/js/signalr</i>/</li>
+     <li><b>Select Install</b></li>
+     </ul>
+     </li>
+     </ol>
