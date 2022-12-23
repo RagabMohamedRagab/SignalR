@@ -1,0 +1,26 @@
+﻿@{
+    ViewData["Title"]="ChatDemo";
+}
+<section class="row">
+    <form class="col-md-6">
+        <div class="form-group">
+            <label class="form-label">User:</label>
+            <input type="text" class="form-control" id="txtUser" required/>
+        </div>
+        <div class="form-group">
+            <label class="form-label">Message:</label>
+            <textarea cols="10" rows="10" class="form-control" id="txtMessage" required></textarea>
+        </div>
+        <div class="from-group mt-3">
+            <input type="submit" class="btn btn-primary" id="btnSendMessage" />
+        </div>
+    </form>
+</section>
+<hr />
+<section>
+    <div class="row">
+        <ul id="messagesList" class="col-md-6">
+
+        </ul>
+    </div>
+</section>

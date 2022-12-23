@@ -10,7 +10,7 @@ using Notifcations.ViewModels;
 using System.Data;
 
 namespace Notifcations.Controllers {
-    [Authorize]
+    [Authorize(Roles = "User,Admin")]
     public class AccountController : Controller {
         private readonly SignInManager<Appuser> _signInManager;
         private readonly UserManager<Appuser> _userManager;
